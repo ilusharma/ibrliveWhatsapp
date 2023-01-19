@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Template Name</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Action</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for temp in templatelist %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ temp.name }}</td>
+                        <td>{{ temp.template }}</td>
+                        <td>{{ temp.type }}</td>
+                        <td><a href="/templates/{{ temp.id }}">View</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+{% endblock %}
